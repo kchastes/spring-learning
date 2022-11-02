@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="otherXml.xml"/>
+    <!--
+        引用其他xml，除去这种方式还可以在上下文构造函数传入多个资源路径
+        <import resource="resources/otherXml.xml"/>
+        <import resource="/resources/themeSource.xml"/>
+    -->
+
+    <!-- name属性取别名 -->
+    <bean id="user" name="user2 哈哈哈" class="com.core.entity.User">
+        <property name="id" value="1"/>
+        <!--<property name="name" value="张三"/>-->
+        <property name="name" >
+            <idref bean="address"/>
+        </property>
+        <property name="address" ref="address"/>
+        <property name="properties" >
+            <value>
+                phone=123
+                account=666
+            </value>
+        </property>
+    </bean>
+
+</beans>
