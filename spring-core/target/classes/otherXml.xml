@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 一个名为user的，现在也可以使用testUserAlias来引用 换句话说testUserAlias就指向user-->
+    <alias name="user" alias="testUserAlias"/>
+
+    <bean id="address" class="com.core.entity.Address">
+        <property name="id" value="1"/>
+        <property name="province" value="江西省"/>
+        <property name="city" value="赣州市"/>
+        <property name="district" value="章贡区"/>
+    </bean>
+
+</beans>
